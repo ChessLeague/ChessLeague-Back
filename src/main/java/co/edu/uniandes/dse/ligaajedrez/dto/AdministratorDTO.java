@@ -7,7 +7,7 @@ public class AdministratorDTO {
     private long id;
     private String name;
     private String photoURL;
-    private String IDNumber;
+    private String idNumber;
     private String username;
     private String password;
 }

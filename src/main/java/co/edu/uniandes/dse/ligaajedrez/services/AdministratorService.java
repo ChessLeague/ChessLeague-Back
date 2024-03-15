@@ -23,9 +23,6 @@ public class AdministratorService {
     @Transactional
     public AdministratorEntity createAdministrator(AdministratorEntity administratorEntity) throws IllegalOperationException {
         log.info("Start the administrator creation process.");
-        if (administratorEntity.getId() == null || administratorEntity.getId() == 0L) {
-            throw new IllegalOperationException("The ID cannot be null or empty.");
-        }
         try {
             log.info("Finish the administrator creation process.");
             return administratorRepository.save(administratorEntity);

@@ -1,0 +1,510 @@
+{
+	"info": {
+		"_postman_id": "161964ba-3f7b-446d-9da1-7197d063b7a4",
+		"name": "Administrator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29228723",
+		"_collection_link": "https://liga-ajedrez.postman.co/workspace/LigaAjedrez~10497e8e-c5e0-4fab-8b47-5c6d94e92184/collection/29228723-161964ba-3f7b-446d-9da1-7197d063b7a4?action=share&source=collection_link&creator=29228723"
+	},
+	"item": [
+		{
+			"name": "CreateAdministrator",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Administrator\",\r\n    \"photoURL\": \"https://cdn.icon-icons.com/icons2/1494/PNG/512/administrator_102921.png\",\r\n    \"idNumber\": \"202310001\",\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin2023\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/administrators",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"administrators"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CreateAdministrator",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Administrator\",\r\n    \"photoURL\": \"https://cdn.icon-icons.com/icons2/1494/PNG/512/administrator_102921.png\",\r\n    \"idNumber\": \"202310001\",\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin2023\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/administrators",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"administrators"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "GetAdministrators",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of administrators > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/administrators",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"administrators"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetAdministrators",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"name\": \"Administrator\",\r\n        \"photoURL\": \"https://cdn.icon-icons.com/icons2/1494/PNG/512/administrator_102921.png\",\r\n        \"idNumber\": \"202310001\",\r\n        \"username\": \"admin\",\r\n        \"password\": \"admin2023\",\r\n        \"leagues\": []\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/administrators",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"administrators"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "GetAdministrator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/administrators/{{administrator_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"administrators",
+						"{{administrator_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetAdministrator",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Administrator\",\r\n    \"photoURL\": \"https://cdn.icon-icons.com/icons2/1494/PNG/512/administrator_102921.png\",\r\n    \"idNumber\": \"202310001\",\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin2023\",\r\n    \"leagues\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/administrators/{{administrator_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"administrators",
+								"{{administrator_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "GetInvalidAdministrator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/administrators/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"administrators",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetInvalidAdministrator",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"10-10-2023 10:01:09\",\r\n        \"message\": \"The administrator with the given id was not found\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/administrators/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"administrators",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "UpdateAdministrator",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Updated Administrator\",\r\n    \"photoURL\": \"https://cdn.icon-icons.com/icons2/1494/PNG/512/administrator_102921.png\",\r\n    \"idNumber\": \"202310001\",\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin2023\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/administrators/{{administrator_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"administrators",
+						"{{administrator_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "UpdateAdministrator",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Updated Administrator\",\r\n    \"photoURL\": \"https://cdn.icon-icons.com/icons2/1494/PNG/512/administrator_102921.png\",\r\n    \"idNumber\": \"202310001\",\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin2023\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/administrators/{{administrator_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"administrators",
+								"{{administrator_id_1}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "UpdateInvalidAdministrator",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/administrator/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"administrator",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "UpdateInvalidAdministrator",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"10-10-2023 10:01:09\",\r\n        \"message\": \"The administrator with the given id was not found\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/administrator/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"administrator",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "DeleteAdministrator",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/administrators/{{administrator_id_1}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"administrators",
+						"{{administrator_id_1}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DeleteAdministrator",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/administrators/{{administrator_id_1}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"administrators",
+								"{{administrator_id_1}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "DeleteInvalidAdministrator",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/administrators/0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"administrators",
+						"0"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DeleteInvalidAdministrator",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"apierror\": {\r\n        \"status\": \"NOT_FOUND\",\r\n        \"timestamp\": \"10-10-2023 10:01:09\",\r\n        \"message\": \"The administrator with the given id was not found\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/administrators/0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"administrators",
+								"0"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -56,7 +56,7 @@ public class LeagueAdministratorServiceTest {
         entityManager.persist(league);
         for (int i = 0; i < 3; i++) {
             AdministratorEntity administrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-            administrator.setIDNumber(Integer.toString(i));
+            administrator.setIdNumber(Integer.toString(i));
             entityManager.persist(administrator);
             administrator.getLeagues().add(league);
             league.getAdministrators().add(administrator);
@@ -69,7 +69,7 @@ public class LeagueAdministratorServiceTest {
         LeagueEntity newLeague = factory.manufacturePojoWithFullData(LeagueEntity.class);
         entityManager.persist(newLeague);
         AdministratorEntity newAdministrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-        newAdministrator.setIDNumber("321");
+        newAdministrator.setIdNumber("321");
         entityManager.persist(newAdministrator);
         leagueAdministratorService.addAdministrator(newAdministrator.getId(), newLeague.getId());
         administratorLeagueService.addLeague(newLeague.getId(), newAdministrator.getId());
@@ -77,7 +77,7 @@ public class LeagueAdministratorServiceTest {
         assertEquals(newAdministrator.getId(), entity.getId());
         assertEquals(newAdministrator.getName(), entity.getName());
         assertEquals(newAdministrator.getPhotoURL(), entity.getPhotoURL());
-        assertEquals(newAdministrator.getIDNumber(), entity.getIDNumber());
+        assertEquals(newAdministrator.getIdNumber(), entity.getIdNumber());
         assertEquals(newAdministrator.getUsername(), entity.getUsername());
         assertEquals(newAdministrator.getPassword(), entity.getPassword());
     }
@@ -95,7 +95,7 @@ public class LeagueAdministratorServiceTest {
     void testAddInvalidAdministrator2() {
         assertThrows(IllegalOperationException.class, () -> {
             AdministratorEntity newAdministrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-            newAdministrator.setIDNumber("321");
+            newAdministrator.setIdNumber("321");
             entityManager.persist(newAdministrator);
             leagueAdministratorService.addAdministrator(newAdministrator.getId(), null);
         });
@@ -114,7 +114,7 @@ public class LeagueAdministratorServiceTest {
     void testAddInvalidAdministrator4() {
         assertThrows(IllegalOperationException.class, () -> {
             AdministratorEntity newAdministrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-            newAdministrator.setIDNumber("321");
+            newAdministrator.setIdNumber("321");
             entityManager.persist(newAdministrator);
             leagueAdministratorService.addAdministrator(newAdministrator.getId(), 0L);
         });
@@ -133,7 +133,7 @@ public class LeagueAdministratorServiceTest {
     void testAddInvalidAdministrator6() {
         assertThrows(EntityNotFoundException.class, () -> {
             AdministratorEntity newAdministrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-            newAdministrator.setIDNumber("321");
+            newAdministrator.setIdNumber("321");
             entityManager.persist(newAdministrator);
             leagueAdministratorService.addAdministrator(newAdministrator.getId(), 321L);
         });
@@ -177,7 +177,7 @@ public class LeagueAdministratorServiceTest {
         assertEquals(entity.getId(), administrator.getId());
         assertEquals(entity.getName(), administrator.getName());
         assertEquals(entity.getPhotoURL(), administrator.getPhotoURL());
-        assertEquals(entity.getIDNumber(), administrator.getIDNumber());
+        assertEquals(entity.getIdNumber(), administrator.getIdNumber());
         assertEquals(entity.getUsername(), administrator.getUsername());
         assertEquals(entity.getPassword(), administrator.getPassword());
     }
@@ -231,7 +231,7 @@ public class LeagueAdministratorServiceTest {
     void testGetInvalidAdministrator7() {
         assertThrows(IllegalOperationException.class, () -> {
             AdministratorEntity newAdministrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-            newAdministrator.setIDNumber("123");
+            newAdministrator.setIdNumber("123");
             entityManager.persist(newAdministrator);
             leagueAdministratorService.getAdministrator(newAdministrator.getId(), league.getId());
         });
@@ -242,7 +242,7 @@ public class LeagueAdministratorServiceTest {
         List<AdministratorEntity> newAdministrators = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             AdministratorEntity administrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-            administrator.setIDNumber(Integer.toString(i) + "0");
+            administrator.setIdNumber(Integer.toString(i) + "0");
             entityManager.persist(administrator);
             newAdministrators.add(administrator);
         }
@@ -284,7 +284,7 @@ public class LeagueAdministratorServiceTest {
             List<AdministratorEntity> newAdministrators = new ArrayList<>();
             for (int i = 0; i < 3; i++) {
                 AdministratorEntity administrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-                administrator.setIDNumber(Integer.toString(i) + "0");
+                administrator.setIdNumber(Integer.toString(i) + "0");
                 entityManager.persist(administrator);
                 newAdministrators.add(administrator);
             }
@@ -321,7 +321,7 @@ public class LeagueAdministratorServiceTest {
     void testRemoveInvalidAdministrator3() {
         assertThrows(IllegalOperationException.class, () -> {
             AdministratorEntity newAdministrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-            newAdministrator.setIDNumber("123");
+            newAdministrator.setIdNumber("123");
             entityManager.persist(newAdministrator);
             leagueAdministratorService.removeAdministrator(newAdministrator.getId(), null);
         });
@@ -331,7 +331,7 @@ public class LeagueAdministratorServiceTest {
     void testRemoveInvalidAdministrator4() {
         assertThrows(IllegalOperationException.class, () -> {
             AdministratorEntity newAdministrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-            newAdministrator.setIDNumber("123");
+            newAdministrator.setIdNumber("123");
             entityManager.persist(newAdministrator);
             leagueAdministratorService.removeAdministrator(newAdministrator.getId(), 0L);
         });
@@ -348,7 +348,7 @@ public class LeagueAdministratorServiceTest {
     void testRemoveInvalidAdministrator6() {
         assertThrows(EntityNotFoundException.class, () -> {
             AdministratorEntity newAdministrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-            newAdministrator.setIDNumber("123");
+            newAdministrator.setIdNumber("123");
             entityManager.persist(newAdministrator);
             leagueAdministratorService.removeAdministrator(newAdministrator.getId(), 321L);
         });
@@ -358,7 +358,7 @@ public class LeagueAdministratorServiceTest {
     void testRemoveInvalidAdministrator7() {
         assertThrows(IllegalOperationException.class, () -> {
             AdministratorEntity newAdministrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-            newAdministrator.setIDNumber("123");
+            newAdministrator.setIdNumber("123");
             entityManager.persist(newAdministrator);
             leagueAdministratorService.removeAdministrator(newAdministrator.getId(), league.getId());
         });

@@ -18,7 +18,7 @@ public class AdministratorEntity extends BaseEntity {
     @Column(nullable = false)
     private String photoURL;
     @Column(unique = true, nullable = false)
-    private String IDNumber;
+    private String idNumber;
     @Column(unique = true, nullable = false)
     private String username;
     @Column(nullable = false)

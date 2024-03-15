@@ -53,7 +53,7 @@ public class AdministratorLeagueServiceTest {
 
     private void insertData() {
         administrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-        administrator.setIDNumber("123");
+        administrator.setIdNumber("123");
         entityManager.persist(administrator);
         for (int i = 0; i < 3; i++) {
             LeagueEntity league = factory.manufacturePojoWithFullData(LeagueEntity.class);
@@ -67,7 +67,7 @@ public class AdministratorLeagueServiceTest {
     @Test
     void testAddLeague() throws IllegalOperationException, EntityNotFoundException {
         AdministratorEntity newAdministrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-        newAdministrator.setIDNumber("321");
+        newAdministrator.setIdNumber("321");
         entityManager.persist(newAdministrator);
         LeagueEntity newLeague = factory.manufacturePojoWithFullData(LeagueEntity.class);
         entityManager.persist(newLeague);
@@ -86,7 +86,7 @@ public class AdministratorLeagueServiceTest {
     void testAddInvalidLeague1() {
         assertThrows(IllegalOperationException.class, () -> {
             AdministratorEntity newAdministrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-            newAdministrator.setIDNumber("321");
+            newAdministrator.setIdNumber("321");
             entityManager.persist(newAdministrator);
             administratorLeagueService.addLeague(null, newAdministrator.getId());
         });
@@ -105,7 +105,7 @@ public class AdministratorLeagueServiceTest {
     void testAddInvalidLeague3() {
         assertThrows(IllegalOperationException.class, () -> {
             AdministratorEntity newAdministrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-            newAdministrator.setIDNumber("321");
+            newAdministrator.setIdNumber("321");
             entityManager.persist(newAdministrator);
             administratorLeagueService.addLeague(0L, newAdministrator.getId());
         });
@@ -124,7 +124,7 @@ public class AdministratorLeagueServiceTest {
     void testAddInvalidLeague5() {
         assertThrows(EntityNotFoundException.class, () -> {
             AdministratorEntity newAdministrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-            newAdministrator.setIDNumber("321");
+            newAdministrator.setIdNumber("321");
             entityManager.persist(newAdministrator);
             administratorLeagueService.addLeague(321L, newAdministrator.getId());
         });

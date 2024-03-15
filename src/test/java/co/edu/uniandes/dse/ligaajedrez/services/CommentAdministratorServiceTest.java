@@ -56,7 +56,7 @@ public class CommentAdministratorServiceTest {
     private void insertData() {
         for (int i = 0; i < 3; i++) {
             AdministratorEntity administrator = factory.manufacturePojoWithFullData(AdministratorEntity.class);
-            administrator.setIDNumber(Integer.toString(i));
+            administrator.setIdNumber(Integer.toString(i));
             entityManager.persist(administrator);
             administrators.add(administrator);
         }
@@ -77,7 +77,7 @@ public class CommentAdministratorServiceTest {
         assertEquals(administrator.getId(), entity.getId());
         assertEquals(administrator.getName(), entity.getName());
         assertEquals(administrator.getPhotoURL(), entity.getPhotoURL());
-        assertEquals(administrator.getIDNumber(), entity.getIDNumber());
+        assertEquals(administrator.getIdNumber(), entity.getIdNumber());
         assertEquals(administrator.getUsername(), entity.getUsername());
         assertEquals(administrator.getPassword(), entity.getPassword());
     }
@@ -161,7 +161,7 @@ public class CommentAdministratorServiceTest {
         assertEquals(administrator.getId(), entity.getId());
         assertEquals(administrator.getName(), entity.getName());
         assertEquals(administrator.getPhotoURL(), entity.getPhotoURL());
-        assertEquals(administrator.getIDNumber(), entity.getIDNumber());
+        assertEquals(administrator.getIdNumber(), entity.getIdNumber());
         assertEquals(administrator.getUsername(), entity.getUsername());
         assertEquals(administrator.getPassword(), entity.getPassword());
     }

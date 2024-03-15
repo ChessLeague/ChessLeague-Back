@@ -49,7 +49,7 @@ public class AdministratorServiceTest {
     private void insertData() {
         for(int i = 0; i < 3; i++) {
             AdministratorEntity administratorEntity = factory.manufacturePojo(AdministratorEntity.class);
-            administratorEntity.setIDNumber(Integer.toString(i));
+            administratorEntity.setIdNumber(Integer.toString(i));
             administratorEntity.setUsername(Integer.toString(i));
             entityManager.persist(administratorEntity);
             administratorList.add(administratorEntity);
@@ -62,7 +62,7 @@ public class AdministratorServiceTest {
         newAdministrator.setId(123L);
         newAdministrator.setName("Test Name");
         newAdministrator.setPhotoURL("Test Photo URL");
-        newAdministrator.setIDNumber("Test ID Number");
+        newAdministrator.setIdNumber("Test ID Number");
         newAdministrator.setUsername("Test Username");
         newAdministrator.setPassword("Test Password");
         AdministratorEntity administratorEntity = administratorService.createAdministrator(newAdministrator);
@@ -71,7 +71,7 @@ public class AdministratorServiceTest {
         assertEquals(administratorEntity.getId(), entity.getId());
         assertEquals(administratorEntity.getName(), entity.getName());
         assertEquals(administratorEntity.getPhotoURL(), entity.getPhotoURL());
-        assertEquals(administratorEntity.getIDNumber(), entity.getIDNumber());
+        assertEquals(administratorEntity.getIdNumber(), entity.getIdNumber());
         assertEquals(administratorEntity.getUsername(), entity.getUsername());
         assertEquals(administratorEntity.getPassword(), entity.getPassword());
     }
@@ -83,7 +83,7 @@ public class AdministratorServiceTest {
             newAdministrator.setId(null);
             newAdministrator.setName("Test Name");
             newAdministrator.setPhotoURL("Test Photo URL");
-            newAdministrator.setIDNumber("Test ID Number");
+            newAdministrator.setIdNumber("Test ID Number");
             newAdministrator.setUsername("Test Username");
             newAdministrator.setPassword("Test Password");
             administratorService.createAdministrator(newAdministrator);
@@ -97,7 +97,7 @@ public class AdministratorServiceTest {
             newAdministrator.setId(0L);
             newAdministrator.setName("Test Name");
             newAdministrator.setPhotoURL("Test Photo URL");
-            newAdministrator.setIDNumber("Test ID Number");
+            newAdministrator.setIdNumber("Test ID Number");
             newAdministrator.setUsername("Test Username");
             newAdministrator.setPassword("Test Password");
             administratorService.createAdministrator(newAdministrator);
@@ -111,7 +111,7 @@ public class AdministratorServiceTest {
             newAdministrator.setId(123L);
             newAdministrator.setName(null);
             newAdministrator.setPhotoURL("Test Photo URL");
-            newAdministrator.setIDNumber("Test ID Number");
+            newAdministrator.setIdNumber("Test ID Number");
             newAdministrator.setUsername("Test Username");
             newAdministrator.setPassword("Test Password");
             administratorService.createAdministrator(newAdministrator);
@@ -125,7 +125,7 @@ public class AdministratorServiceTest {
             newAdministrator.setId(123L);
             newAdministrator.setName("Test Name");
             newAdministrator.setPhotoURL(null);
-            newAdministrator.setIDNumber("Test ID Number");
+            newAdministrator.setIdNumber("Test ID Number");
             newAdministrator.setUsername("Test Username");
             newAdministrator.setPassword("Test Password");
             administratorService.createAdministrator(newAdministrator);
@@ -139,7 +139,7 @@ public class AdministratorServiceTest {
             newAdministrator.setId(123L);
             newAdministrator.setName("Test Name");
             newAdministrator.setPhotoURL("Test Photo URL");
-            newAdministrator.setIDNumber(null);
+            newAdministrator.setIdNumber(null);
             newAdministrator.setUsername("Test Username");
             newAdministrator.setPassword("Test Password");
             administratorService.createAdministrator(newAdministrator);
@@ -153,7 +153,7 @@ public class AdministratorServiceTest {
             newAdministrator.setId(123L);
             newAdministrator.setName("Test Name");
             newAdministrator.setPhotoURL("Test Photo URL");
-            newAdministrator.setIDNumber(administratorList.get(0).getIDNumber());
+            newAdministrator.setIdNumber(administratorList.get(0).getIdNumber());
             newAdministrator.setUsername("Test Username");
             newAdministrator.setPassword("Test Password");
             administratorService.createAdministrator(newAdministrator);
@@ -167,7 +167,7 @@ public class AdministratorServiceTest {
             newAdministrator.setId(123L);
             newAdministrator.setName("Test Name");
             newAdministrator.setPhotoURL("Test Photo URL");
-            newAdministrator.setIDNumber("Test ID Number");
+            newAdministrator.setIdNumber("Test ID Number");
             newAdministrator.setUsername(null);
             newAdministrator.setPassword("Test Password");
             administratorService.createAdministrator(newAdministrator);
@@ -182,7 +182,7 @@ public class AdministratorServiceTest {
             newAdministrator.setId(123L);
             newAdministrator.setName("Test Name");
             newAdministrator.setPhotoURL("Test Photo URL");
-            newAdministrator.setIDNumber("Test ID Number");
+            newAdministrator.setIdNumber("Test ID Number");
             newAdministrator.setUsername(administratorList.get(0).getUsername());
             newAdministrator.setPassword("Test Password");
             administratorService.createAdministrator(newAdministrator);
@@ -196,7 +196,7 @@ public class AdministratorServiceTest {
             newAdministrator.setId(123L);
             newAdministrator.setName("Test Name");
             newAdministrator.setPhotoURL("Test Photo URL");
-            newAdministrator.setIDNumber("Test ID Number");
+            newAdministrator.setIdNumber("Test ID Number");
             newAdministrator.setUsername("Test Username");
             newAdministrator.setPassword(null);
             administratorService.createAdministrator(newAdministrator);
@@ -226,7 +226,7 @@ public class AdministratorServiceTest {
         assertEquals(storedAdministrator.getId(), administrator.getId());
         assertEquals(storedAdministrator.getName(), administrator.getName());
         assertEquals(storedAdministrator.getPhotoURL(), administrator.getPhotoURL());
-        assertEquals(storedAdministrator.getIDNumber(), administrator.getIDNumber());
+        assertEquals(storedAdministrator.getIdNumber(), administrator.getIdNumber());
         assertEquals(storedAdministrator.getUsername(), administrator.getUsername());
         assertEquals(storedAdministrator.getPassword(), administrator.getPassword());
     }
@@ -259,7 +259,7 @@ public class AdministratorServiceTest {
         administrator.setId(storedAdministrator.getId());
         administrator.setName("Test Name");
         administrator.setPhotoURL("Test Photo URL");
-        administrator.setIDNumber("Test ID Number");
+        administrator.setIdNumber("Test ID Number");
         administrator.setUsername("Test Username");
         administrator.setPassword("Test Password");
         administratorService.updateAdministrator(storedAdministrator.getId(), administrator);
@@ -267,7 +267,7 @@ public class AdministratorServiceTest {
         assertEquals(administrator.getId(), updatedAdministrator.getId());
         assertEquals(administrator.getName(), updatedAdministrator.getName());
         assertEquals(administrator.getPhotoURL(), updatedAdministrator.getPhotoURL());
-        assertEquals(administrator.getIDNumber(), updatedAdministrator.getIDNumber());
+        assertEquals(administrator.getIdNumber(), updatedAdministrator.getIdNumber());
         assertEquals(administrator.getUsername(), updatedAdministrator.getUsername());
         assertEquals(administrator.getPassword(), updatedAdministrator.getPassword());
     }
@@ -302,7 +302,7 @@ public class AdministratorServiceTest {
             AdministratorEntity storedAdministrator = administratorList.get(0);
             storedAdministrator.setName(null);
             storedAdministrator.setPhotoURL("Test Photo URL");
-            storedAdministrator.setIDNumber("Test ID Number");
+            storedAdministrator.setIdNumber("Test ID Number");
             storedAdministrator.setUsername("Test Username");
             storedAdministrator.setPassword("Test Password");
             administratorService.updateAdministrator(storedAdministrator.getId(), storedAdministrator);
@@ -315,7 +315,7 @@ public class AdministratorServiceTest {
             AdministratorEntity storedAdministrator = administratorList.get(0);
             storedAdministrator.setName("Test Name");
             storedAdministrator.setPhotoURL(null);
-            storedAdministrator.setIDNumber("Test ID Number");
+            storedAdministrator.setIdNumber("Test ID Number");
             storedAdministrator.setUsername("Test Username");
             storedAdministrator.setPassword("Test Password");
             administratorService.updateAdministrator(storedAdministrator.getId(), storedAdministrator);
@@ -328,7 +328,7 @@ public class AdministratorServiceTest {
             AdministratorEntity storedAdministrator = administratorList.get(0);
             storedAdministrator.setName("Test Name");
             storedAdministrator.setPhotoURL("Test Photo URL");
-            storedAdministrator.setIDNumber(null);
+            storedAdministrator.setIdNumber(null);
             storedAdministrator.setUsername("Test Username");
             storedAdministrator.setPassword("Test Password");
             administratorService.updateAdministrator(storedAdministrator.getId(), storedAdministrator);
@@ -341,7 +341,7 @@ public class AdministratorServiceTest {
             AdministratorEntity storedAdministrator = administratorList.get(0);
             storedAdministrator.setName("Test Name");
             storedAdministrator.setPhotoURL("Test Photo URL");
-            storedAdministrator.setIDNumber(administratorList.get(1).getIDNumber());
+            storedAdministrator.setIdNumber(administratorList.get(1).getIdNumber());
             storedAdministrator.setUsername("Test Username");
             storedAdministrator.setPassword("Test Password");
             administratorService.updateAdministrator(storedAdministrator.getId(), storedAdministrator);
@@ -354,7 +354,7 @@ public class AdministratorServiceTest {
             AdministratorEntity storedAdministrator = administratorList.get(0);
             storedAdministrator.setName("Test Name");
             storedAdministrator.setPhotoURL("Test Photo URL");
-            storedAdministrator.setIDNumber("Test ID Number");
+            storedAdministrator.setIdNumber("Test ID Number");
             storedAdministrator.setUsername(null);
             storedAdministrator.setPassword("Test Password");
             administratorService.updateAdministrator(storedAdministrator.getId(), storedAdministrator);
@@ -367,7 +367,7 @@ public class AdministratorServiceTest {
             AdministratorEntity storedAdministrator = administratorList.get(0);
             storedAdministrator.setName("Test Name");
             storedAdministrator.setPhotoURL("Test Photo URL");
-            storedAdministrator.setIDNumber("Test ID Number");
+            storedAdministrator.setIdNumber("Test ID Number");
             storedAdministrator.setUsername(administratorList.get(1).getUsername());
             storedAdministrator.setPassword("Test Password");
             administratorService.updateAdministrator(storedAdministrator.getId(), storedAdministrator);
@@ -380,7 +380,7 @@ public class AdministratorServiceTest {
             AdministratorEntity storedAdministrator = administratorList.get(0);
             storedAdministrator.setName("Test Name");
             storedAdministrator.setPhotoURL("Test Photo URL");
-            storedAdministrator.setIDNumber("Test ID Number");
+            storedAdministrator.setIdNumber("Test ID Number");
             storedAdministrator.setUsername("Test Username");
             storedAdministrator.setPassword(null);
             administratorService.updateAdministrator(storedAdministrator.getId(), storedAdministrator);
